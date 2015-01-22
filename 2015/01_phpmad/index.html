@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>What should i buy for my wife? | Desarrolla2</title>
+  <meta name="description" content="">
+  <meta name="author" content=""/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <link rel="shortcut icon" href="favicon.ico">
+  <link href="css/main.css" rel="stylesheet" type="text/css"/>
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/chart.js"></script>
+  <script type="text/javascript" src="js/highlight.js"></script>
+  <script type="text/javascript" src="js/jmpress.js"></script>
+  <script type="text/javascript" src="js/relative-position.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+</head>
+<body>
+<div id="presentation">
+
+  <div class="step title" id="init">
+    <h1>What should i buy for my wife?</h1>
+
+    <div class="thumbnail logo ">
+      <img src="img/phpmad_logo.png">
+    </div>
+  </div>
+  <div class="step content" data-y="100">
+    <h2>
+      Daniel González Cerviño
+    </h2>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="thumbnail" style="width: 250px;">
+          <img src="img/daniel_gonzalez.jpg">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <ul>
+          <li>Developer focused in <strong>PHP</strong> and <strong>Symfony2</strong></li>
+          <li>Contact me on <a href="https://twitter.com/desarrolla2">@desarrolla2</a></li>
+          <li>I currently work for <a href="http://www.tadium.es/">Tadium Invest</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="step content" data-y="100">
+    <h2>Goals</h2>
+
+    <ul class="index">
+      <li>Introduction to recommender system</li>
+      <li>Implementing a basic recommender system</li>
+    </ul>
+  </div>
+  <div class="step content" data-x="100">
+    <h2>What is the problem?</h2>
+
+    <div class="row">
+      <div class="col-md-6" data-jmpress="fade after">
+        <h3 style="height: 52px;">Constant increase of data</h3>
+
+
+        <div class="thumbnail" style="margin-top: 34px">
+          <img src="img/increment_data.png">
+        </div>
+      </div>
+      <div class="col-md-6" data-jmpress="fade after">
+        <h3 style="height: 52px;">Information overload</h3>
+
+        <div class="thumbnail" style="margin-top: 34px; width: 350px;">
+          <img src="img/information_overload.jpg">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="step content" data-x="100">
+    <h2>What it is?</h2>
+
+    <p>It is a system that seek to predict the 'rating' or 'preference' that user would give to an item.</p>
+
+    <div class="row " style=" margin-left: 3px; margin-top: 30px" data-jmpress="fade after">
+      <div class="thumbnail" style="width: 380px">
+        <img src="img/goodreads.jpg" height="230">
+      </div>
+    </div>
+
+  </div>
+  <div class="step content" data-x="100">
+    <h2>Use Cases</h2>
+
+    <div class="block" data-jmpress="fade after">
+      <h4>E-commerce</h4>
+
+      <p>Products to buy such as books, cameras, PCs etc ...</p>
+    </div>
+    <div class="block" data-jmpress="fade after">
+      <h4>Entertainment</h4>
+
+      <p>Movies, music, series ...</p>
+    </div>
+    <div class="block" data-jmpress="fade after">
+      <h4>Content</h4>
+
+      <p>Personalized newspapers, e-learnings, meetups, ...</p>
+    </div>
+  </div>
+
+  <div class="step content" data-x="100">
+    <h2>challenges</h2>
+
+    <ul class="row" style="text-align: center">
+      <li class="block col-md-5">Acuracity</li>
+      <li class="block col-md-5">Diversity</li>
+      <li class="block col-md-5">Privacity</li>
+      <li class="block col-md-5">Eficiency</li>
+      <li class="block col-md-5">Scalability</li>
+      <li class="block col-md-5">Real Time</li>
+      <li class="block col-md-5">Optimize secuences</li>
+    </ul>
+  </div>
+
+  <div class="step content" data-x="100">
+    <h2>Techniques</h2>
+    <ul class="index">
+      <li>
+        <i class="glyphicon glyphicon-chevron-right"></i>Content Based
+      </li>
+      <li>
+        Collaborative filtering
+      </li>
+      <li>
+        Others
+      </li>
+      <li>
+        Hybrid
+      </li>
+    </ul>
+  </div>
+
+  <div class="step content" data-x="100">
+    <h2>Content Based Paradigm</h2>
+
+    <q>"Show me more of the same what I've liked"</q>
+
+    <div class="thumbnail" style="margin-top: 20px">
+      <img src="img/content_based_paradigm.png"/>
+    </div>
+  </div>
+
+  <div class="step content" data-x="100" id="content-based">
+    <h2>Content Based</h2>
+
+    <p>
+      Analyze item descriptions and properties to identify items that are of particular interest
+      to the profile of the user’s preference.
+    </p>
+    <ul>
+      <li data-jmpress="fade after">Create a profile vector for each item/user</li>
+    </ul>
+  </div>
+
+  <div class="step content" data-x="100">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Title</th>
+        <th>Genre</th>
+        <th>Author</th>
+        <th>Keywords</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Learning PHP, MySQL, JavaScript, CSS...</td>
+        <td>Programming</td>
+        <td>Robin Nixon</td>
+        <td>php, mysql, javascript</td>
+      </tr>
+      <tr>
+        <td>PHP Web Services: APIs for the Modern Web</td>
+        <td>Programming</td>
+        <td>Lorna Jane Mitchell</td>
+        <td>php, web services</td>
+      </tr>
+      <tr>
+        <td>The Pragmatic Programmer...</td>
+        <td>Software Design</td>
+        <td>Andrew Hunt, David Thomas</td>
+        <td>pragmatism, best practices, development</td>
+      </tr>
+      <tr>
+        <td>Head First Design Patterns...</td>
+        <td>Object-Oriented Software Design</td>
+        <td> Eric Freeman, Bert Bates, Kathy Sierra, Elisabeth Robson</td>
+        <td>patterns, best practices, development</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="step content" data-x="100">
+    <h2>Feature Vector</h2>
+
+    <div class="thumbnail" style="width: 440px">
+      <img src="img/vector_space_feature.png"/>
+    </div>
+  </div>
+  <div class="step content" data-x="100">
+    <h2>Calculating the term's vector</h2>
+
+    <p>TF-IDF: term frequency-inverse document frequency</p>
+
+    <p><strong>TF(i, j)</strong> = freq(i, j) / max(freq(i, j))</p>
+
+    <p><strong>IDF(i)</strong> = log( N/n(i) )</p>
+
+    <p><strong>TF-IDF(i, j)</strong> = TF(i, j) ∗ IDF(i)</p>
+
+    <p>
+      <small>Salton, 1975</small>
+    </p>
+  </div>
+
+  <div class="step content" data-y="100">
+    <h2>Example: TF-IDF</h2>
+
+    <div class="row">
+      <div class="col-md-6">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Key</th>
+            <th>freq(i, j)</th>
+            <th>TF(i, j)</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>php</td>
+            <td>4</td>
+            <td>1</span></td>
+          </tr>
+          <tr>
+            <td>html</td>
+            <td>3</td>
+            <td>3/4</span></td>
+          </tr>
+          <tr>
+            <td>mysql</td>
+            <td>2</td>
+            <td>1/2</span></td>
+          </tr>
+          <tr>
+            <td>programming</td>
+            <td>1</td>
+            <td>1/4</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-6" data-jmpress="fade after">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Key</th>
+            <th>n(i)</th>
+            <th>IDF(i)</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>php</td>
+            <td>1</td>
+            <td>1.386</span></td>
+          </tr>
+          <tr>
+            <td>html</td>
+            <td>2</td>
+            <td>0.693</span></td>
+          </tr>
+          <tr>
+            <td>mysql</td>
+            <td>3</td>
+            <td>0.287</span></td>
+          </tr>
+          <tr>
+            <td>programming</td>
+            <td>4</td>
+            <td>0</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row" data-jmpress="fade after">
+      <div class="col-md-12">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>php</th>
+            <th>html</th>
+            <th>mysql</th>
+            <th>programming</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>1.386</td>
+            <td>0.519</td>
+            <td>0.143</td>
+            <td>0</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="step content" data-y="100">
+    <h2>Example TD-IDF</h2>
+  </div>
+
+  <div class="step content" data-x="100" data-y="-706">
+    <h2>user modeling</h2>
+
+    <ul data-jmpress="fade after">
+      <li>Explicitly via the user interface</li>
+      <li>Implicitly by monitoring the user’s behavior</li>
+    </ul>
+
+    <ul data-jmpress="fade after">
+      <li>Short-term</li>
+      <li>Long-term</li>
+    </ul>
+
+  </div>
+  <div class="step content" data-x="100">
+    <h2>k-nearest neighbors</h2>
+
+    <div class="thumbnail" style="width: 470px; height: 340px">
+      <img src="img/2_knn.png"/>
+    </div>
+
+    <p>
+      <small>Billsus, 2000</small>
+    </p>
+  </div>
+
+  <div class="step content" data-x="100">
+    <h2>Calculating distances</h2>
+
+    <div class="row">
+      <div class="col-md-6">
+        <p>
+          <strong>Intersection</strong> A ∩ B of two sets A and B is the set that contains all elements of A that also
+          belong to B (or equivalently, all elements of B that also belong to A), but no other elements.
+        </p>
+      </div>
+      <div class="col-md-6">
+        <div class="thumbnail">
+          <img src="img/set_intersection.png">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step content" data-y="100">
+    <h2>Example</h2>
+
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>vector</th>
+        <th>termr</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Learning PHP, MySQL, JavaScript, CSS</td>
+        <td>php, mysql, html, programing</td>
+      </tr>
+      <tr>
+        <td>PHP Web Services: APIs for the Modern Web</td>
+        <td>php, programing, api, rest</td>
+      </tr>
+      <tr>
+        <td>A ∩ B</td>
+        <td>php, programing</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="step content" data-y="100">
+    <h2>PHP SPL</h2>
+    <ul>
+      <li>
+        <pre><code>array array_intersect ( array $array1 , array $array2 [, array $... ] )</code></pre>
+      </li>
+      <div data-jmpress="fade after">
+        <li>
+          <pre><code>array array_intersect_assoc(array $array1 , array $array2 [, array $... ])</code></pre>
+        </li>
+        <li>
+          <pre><code>array array_intersect_key(array $array1 , array $array2 [, array $... ])</code></pre>
+        </li>
+      </div>
+      <div data-jmpress="fade after">
+        <li>
+        <pre><code>array array_intersect_uassoc(array $array1 , array $array2 [, array $... ], callable
+          $key_compare_func )</code></pre>
+        </li>
+        <li>
+        <pre><code>array array_intersect_ukey(array $array1 , array $array2 [, array $... ], callable
+          $key_compare_func)</code></pre>
+        </li>
+      </div>
+    </ul>
+  </div>
+
+  <div class="step content" data-y="100">
+    <h2>Distance / Similarity</h2>
+
+    <p>We often want to compare two feature vectors, to measure how different (or how similar) they are.</p>
+
+  </div>
+
+  <div class="step content" data-y="100" id="euclidean">
+    <h2>Euclidean distance</h2>
+
+    <p>The Euclidean distance between points p and q is the length of the line segment connecting them.</p>
+
+    <div class="thumbnail" style="width: 300px; margin-top: 40px">
+      <img src="img/euclidean.png">
+    </div>
+    <p>Takes values from 0 to ∞</p>
+  </div>
+
+  <div class="step content" data-y="100">
+    <h2>Example Euclidean Distance</h2>
+  </div>
+
+  <div class="step content" data-x="100" data-y="-1308">
+    <h2>Resume</h2>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="block" data-jmpress="fade after">
+          <h3>Strengths</h3>
+          <ul>
+            <li>Not require community</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="block" data-jmpress="fade after">
+          <h3>Weaknesses</h3>
+          <ul>
+            <li>Acquiring profiles</li>
+            <li>Cost of detailed descriptions</li>
+            <li>Overspecialization</li>
+            <li>Phrases</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step content" data-x="100">
+    <h2>Techniques</h2>
+    <ul class="index">
+      <li>
+        Content Based
+      </li>
+      <li>
+        <i class="glyphicon glyphicon-chevron-right"></i> Collaborative filtering
+      </li>
+      <li>
+        Others
+      </li>
+      <li>
+        Hybrid
+      </li>
+    </ul>
+  </div>
+
+  <div class="step content" data-x="100">
+    <h2>Colaborative Filtering Paradigm</h2>
+    <q>"Tell me what's popular among my peers"</q>
+
+    <div class="thumbnail" style="margin-top: 15px">
+      <img src="img/colaborative_filtering_paradigm.png">
+    </div>
+  </div>
+
+  <div class="step content" data-x="100" id="colaborarive-filtering">
+    <h2>Collaborative filtering</h2>
+
+    <p>
+      Based on collecting and analyzing a large amount of information on users’ behaviors, activities or preferences
+      and predicting what users will like based on their similarity to other users.
+    </p>
+  </div>
+  <div class="step content" data-x="100">
+    <h2>Definitions</h2>
+    <ul>
+      <li>
+        <strong>Users</strong>
+      </li>
+      <li>
+        <strong>Items</strong>
+      </li>
+      <li>
+        <strong>Transactions</strong>
+        We generically refer to a transaction as a recorded interaction between a user and the RS
+        <ul data-jmpress="fade after">
+          <li>
+            <strong>Numerical</strong>
+          </li>
+          <li>
+            <strong>Binary</strong>
+          </li>
+          <li>
+            <strong>Unary</strong>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="step content" data-x="100">
+    <h2>User-based nearest neighbor recommendation</h2>
+
+    <p>Identify users that had similar preferences to active user in the past.</p>
+
+    <div class="thumbnail" style="width: 360px">
+      <img src="img/colaborative_filtering.png">
+    </div>
+
+  </div>
+  <div class="step content" data-y="100">
+    <h2>User-based nearest neighbor recommendation</h2>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <td style="width: 140px">#</td>
+        <td>Learning PHP, MySQL, JavaScript, CSS...</td>
+        <td>PHP Web Services: APIs for the Modern Web</td>
+        <td>The Pragmatic Programmer...</td>
+        <td>Head First Design Patterns...</td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>User1</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>9</td>
+      </tr>
+      <tr>
+        <td>User2</td>
+        <td>7</td>
+        <td>4</td>
+        <td>2</td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>User3</td>
+        <td>1</td>
+        <td>3</td>
+        <td>6</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>User4</td>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>5</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="step content" data-y="100">
+    <h2>Similarity</h2>
+
+    <div class="thumbnail">
+      <img src="img/colaborative_similarity.png">
+    </div>
+
+  </div>
+
+  <div class="step content" data-y="100" id="pearson">
+    <h2>Similarity: Pearson correlation coefficient</h2>
+
+    <p>
+      Pearson's r, a measure of the strength and direction of the linear relationship between two variables that is
+      defined as the (sample) covariance of the variables divided by the product of their (sample) standard deviations.
+    </p>
+
+  </div>
+
+  <div class="step content" data-y="100">
+    <h2>Similarity: Pearson correlation coefficient</h2>
+
+    <div class="thumbnail" style="width: 300px">
+      <img src="img/pearson.gif"/>
+    </div>
+
+    <p>
+      Takes values from -1 to 1.
+    </p>
+
+    <div data-jmpress="fade after">
+      <pre><code>float stats_stat_correlation ( array $arr1 , array $arr2 )</code></pre>
+    </div>
+  </div>
+
+  <div class="step content" data-y="100">
+    <h2>Example Marvel</h2>
+
+    <div class="thumbnail">
+      <img src="img/marvel.png"/>
+    </div>
+  </div>
+
+  <div class="step content" data-y="100">
+    <h2>Example Marvel</h2>
+
+    <div class="row" style="text-align: center">
+      <div class="col-md-6">
+        <h3 class="block">Characters</h3>
+        <h4>Wolverine</h4>
+
+        <div class="thumbnail" style="width: 288px; margin: 0 auto;">
+          <img src="img/wolverine.jpg" style="height: 280px"/>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h3 class="block">Series</h3>
+        <h4>Astonishing X-Men Vol. 1</h4>
+
+        <div class="thumbnail" style="width: 194px; margin: 0 auto;">
+          <img src="img/astonishing.jpg" style="height: 280px"/>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="step content" data-y="100" id="jaccard">
+    <h2>Jaccard</h2>
+
+    <p>
+      The Jaccard coefficient measures similarity between finite sample sets, and is defined as the size of the
+      intersection divided by the size of the union of the sample sets
+    </p>
+
+    <div class="thumbnail" style="width: 300px; margin-top: 40px">
+      <img src="img/jaccard.png">
+    </div>
+    <p>Takes values from 0 to 1</p>
+  </div>
+  <div class="step content" data-y="100">
+    <h2>Example Marvel</h2>
+
+    <ol>
+      <li>
+        <a href="http://guzzle.readthedocs.org/en/latest/clients.html#sending-requests-with-a-pool">
+          Sending request in a pool with guzzle
+        </a>
+      </li>
+      <li>Show example</li>
+    </ol>
+    <div data-jmpress="fade after">
+      <div class="col-md-6">
+        <div class="thumbnail" style="width:290px;">
+          <img src="img/cyclops.jpg" style="width: 280px">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="thumbnail" style="width:290px;">
+          <img src="img/punisher.jpg" style="width: 280px">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step content" data-x="100" data-y="-3726">
+    <h2>ITEM-BASED</h2>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="thumbnail" style="width: 300px">
+          <img src="img/collaborative_filtering_sparsity.png" style="height: 350px;"/>
+        </div>
+      </div>
+      <div class="col-md-6" data-jmpress="fade after">
+        <div class="thumbnail" style="width: 300px">
+          <img src="img/collaborative_filtering_item_based.png" style="height: 350px;"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step content" data-x="100">
+    <h2>Resume collaborative filtering</h2>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="block" data-jmpress="fade after">
+          <h3>strengths</h3>
+          <ul>
+            <li>Simplicity</li>
+            <li>Justifiability</li>
+            <li>Content Agnostic</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="block" data-jmpress="fade after">
+          <h3>Weaknesses</h3>
+          <ul>
+            <li>Scalability</li>
+            <li>Sparsity</li>
+            <li>Popular items over unpopular items</li>
+            <li>Cold Start</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step content" data-x="100">
+    <h2>Techniques</h2>
+    <ul class="index">
+      <li>
+        Content Based
+      </li>
+      <li>
+        Collaborative filtering
+      </li>
+      <li>
+        <i class="glyphicon glyphicon-chevron-right"></i> Others
+      </li>
+      <li>
+        Hybrid
+      </li>
+    </ul>
+  </div>
+  <div class="step content" data-x="100">
+    <h2>Others</h2>
+
+    <ul>
+      <li>
+        <strong>Demographic</strong> This type of system recommends items based on the demographic profile of the
+        user. The assumption is that different recommendations should be generated for different demographic niches.
+      </li>
+      <li>
+        <strong>Knowledge-based</strong> Knowledge-based systems recommend items based on specific domain knowledge
+        about how certain item features meet users needs and preferences and, ultimately, how the item is useful for the
+        user.
+      </li>
+    </ul>
+  </div>
+
+  <div class="step content" data-x="100">
+    <h2>Others</h2>
+
+    <ul>
+
+      <li>
+        <strong>Community-based</strong> This type of system recommends items based on the preferences of the users
+        friends. This technique follows the epigram “Tell me who your friends are, and I will tell you who you are”.
+      </li>
+    </ul>
+  </div>
+
+  <div class="step content" data-x="100">
+    <h2>Techniques</h2>
+    <ul class="index">
+      <li>
+        Content Based
+      </li>
+      <li>
+        Collaborative filtering
+      </li>
+      <li>
+        Others
+      </li>
+      <li>
+        <i class="glyphicon glyphicon-chevron-right"></i> Hybrid
+      </li>
+    </ul>
+  </div>
+
+  <div class="step content" data-x="100">
+    <h2>Hybrid</h2>
+    These RSs are based on the combination of the above mentioned techniques. A hybrid system
+    combining techniques A and B tries to use the advantages of A to fix the disadvantages of B.
+  </div>
+
+  <div class="step content" data-x="100">
+    <h2>Final touch: distances</h2>
+    <ul>
+      <li>Cosine</li>
+      <li>Manhattan</li>
+      <li>Minkowski</li>
+      <li>Mahalanobis</li>
+    </ul>
+
+  </div>
+
+  <div class="step content" data-x="100">
+    <h2>Final touch: processing</h2>
+
+    <div style="position: relative; height: 250px; margin-top: 50px">
+        <span class="pill pill-grey" style="position: absolute; top: 0; left: 35px;">
+          <i class="glyphicon glyphicon-cloud-upload"></i> Input
+        </span>
+        <span class="pill pill-blue  pill-large" style="position: absolute; bottom: 50px; left: 0;">
+          <i class="glyphicon glyphicon-filter"></i> Pre Processing
+        </span>
+        <span class="pill pill-yellow pill-x-large" style="position: absolute; bottom: 10px; left: 286px;">
+          <i class="glyphicon glyphicon-refresh"></i> Data Analysis
+        </span>
+        <span class="pill pill-blue pill-large" style="position: absolute; bottom: 50px; right: 0;">
+          <i class="glyphicon glyphicon-pencil"></i> Adjustment
+        </span>
+        <span class="pill pill-grey" style="position: absolute; top: 0; right: 35px;">
+          <i class="glyphicon glyphicon-cloud-download"></i> Output
+        </span>
+      <span class="glyphicon glyphicon-chevron-down" style="position: absolute; top: 79px; left: 89px;"></span>
+      <span class="glyphicon glyphicon-chevron-up" style="position: absolute; top: 79px; right: 98px;"></span>
+      <span class="glyphicon glyphicon-chevron-right" style="position: absolute; top: 142px; left: 256px;"></span>
+      <span class="glyphicon glyphicon-chevron-right" style="position: absolute; top: 142px; right: 222px;"></span>
+    </div>
+  </div>
+
+  <div class="step content" data-y="-100">
+    <h2>would you like to know more?</h2>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="thumbnail center-block" style="width: 180px">
+          <a href="http://www.amazon.com/Recommender-Systems-Introduction-Dietmar-Jannach/dp/0521493366">
+            <img src="img/book_recomender_system_introduccion.jpg"/>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="thumbnail center-block" style="width: 180px">
+          <a href="http://www.amazon.com/Recommender-Systems-Handbook-Francesco-Ricci/dp/0387858199/">
+            <img src="img/book_recomender_system_handbook.jpg"/>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <h4 style="text-align: center">Recommender Systems: An Introduction</h4>
+      </div>
+      <div class="col-md-6">
+        <h4 style="text-align: center">Recommender Systems Handbook</h4>
+      </div>
+    </div>
+  </div>
+  <div class="step thanks" data-y="-100">
+    <h4>Thanks you !</h4>
+
+    <p>Any questions?</p>
+  </div>
+</div>
+
+</body>
+</html>

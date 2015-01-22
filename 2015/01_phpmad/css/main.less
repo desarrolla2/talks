@@ -1,0 +1,173 @@
+@import (inline)"reset.css";
+@import (inline)"bootstrap.custom.css";
+@import (inline)"highlight.idea.css";
+@import (inline)"jmpress.animations.css";
+@import (inline)"jmpress.step.css";
+
+@white: #ffffff;
+@black: #000000;
+@grey1: #bfbfbf;
+@green1: #b2d0b4;
+@blue1: #4f81bc;
+@brown1: #3d372e;
+@brown2: #2e2922;
+@yellow1: #f39c11;
+
+.h {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 35px;
+  margin-top: 0;
+}
+
+.table-striped > tbody > tr:nth-child(odd) {
+  background-color: @green1;
+  color: @brown1;
+  border: 0;
+}
+
+q {
+  font-size: 20px;
+  text-align: right;
+  font-style: italic;
+}
+
+.step {
+  font-family: Verdana, sans-serif;
+  /* Century Schoolbook*/
+  width: 900px;
+  height: 506px;
+  color: @white;
+  background-color: @brown1;
+  padding: 50px;
+  font-size: 25px;
+
+  small {
+    font-size: 15px;
+  }
+
+  table {
+    font-size: 18px;
+  }
+
+  a {
+    color: @green1;
+  }
+
+  li {
+    margin: 10px 0 10px 0;
+  }
+
+  &.title, &.title-reverse {
+    padding: 0;
+    background-size: cover;
+
+    h1 {
+      .h;
+      background: @brown1;
+      color: @white;
+      position: absolute;
+      padding: 40px 50px;
+      bottom: 80px;
+    }
+  }
+
+  &.title {
+    background: url("../img/background_1.jpg");
+  }
+
+  &.title-reverse {
+    background: url("../img/background_2.jpg");
+  }
+
+  &.content {
+    h2 {
+      .h;
+      color: @green1;
+      margin-bottom: 20px;
+    }
+
+    h3, h4 {
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }
+
+  &.thanks {
+    text-align: center;
+
+    h4 {
+      .h;
+      color: @green1;
+      font-size: 120px;
+      line-height: 100px;
+      margin-top: 70px;
+    }
+  }
+
+  ul.index {
+    margin-top: 30px;
+
+    li {
+      display: block;
+      text-transform: uppercase;
+      background: @green1;
+      padding: 10px 25px;
+      color: @brown1;
+
+      i {
+        margin-right: 15px;
+      }
+    }
+  }
+
+  code {
+    font-size: 12px;
+  }
+
+  .pill {
+    margin: 10px 5px;
+    display: inline-block;
+    background: @green1;
+    color: @brown1;
+    padding: 10px 15px;
+    border-radius: 5px;
+  }
+
+  .pill-grey {
+    background: @grey1;
+    color: @black;
+  }
+
+  .pill-blue {
+    background: @blue1;
+    color: @white;
+  }
+
+  .pill-yellow {
+    background: @yellow1;
+    color: @white;
+  }
+
+  .pill-large {
+    padding: 20px 15px;
+  }
+
+  .pill-x-large {
+    padding: 60px 25px;
+  }
+
+  .block {
+    margin: 10px 5px;
+    display: block;
+    background: @green1;
+    color: @brown1;
+    padding: 10px;
+  }
+
+  .logo {
+    position: absolute;
+    right: 10px;
+    bottom: -10px;
+  }
+}
