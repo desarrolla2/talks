@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Sod" basedir=".">
+    <property name="source" value="src"/>
+    <property name="ignore" value="build"/>
+
+    <target name="install" description="Prepare for build">
+        <exec executable="composer">
+            <arg value="install"/>
+            <arg value="--no-scripts"/>
+            <arg value="--optimize-autoloader"/>
+        </exec>
+    </target>
+
+    <target name="cs" description="Analyzes some PHP source code and tries to fix coding standards issues ">
+        <parallel>
+            <exec executable="php-cs-fixer">
+                <arg line="fix src"/>
+            </exec>
+            <exec executable="php-formatter">
+                <arg line="formatter:header:fix src"/>
+            </exec>
+            <exec executable="php-formatter">
+                <arg line="formatter:use:sort src"/>
+            </exec>
+        </parallel>
+    </target>
+</project>

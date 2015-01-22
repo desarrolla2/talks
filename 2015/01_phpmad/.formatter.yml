@@ -1,0 +1,22 @@
+use-sort:
+    group:
+        - _main
+        - Desarrolla2
+    group-type: each
+    sort-type: alph
+    sort-direction: asc
+
+header: |
+    /*
+     * This code is a  example to php madrid meeting group talk
+     * on January 2015.
+     *
+     * Please do not take this as production code
+     *
+     * Copyright (c) Daniel González
+     *
+     * For the full copyright and license information, please view the LICENSE
+     * file that was distributed with this source code.
+     *
+     * @author Daniel González <daniel@desarrolla2.com>
+     */

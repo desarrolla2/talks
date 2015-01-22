@@ -1,0 +1,21 @@
+{
+  "name": "desarrolla2/talks-recomendation-system",
+  "authors": [
+    {
+      "name": "Daniel González Cerviño",
+      "email": "daniel@desarrolla2.com"
+    }
+  ],
+  "require": {
+    "symfony/console": "~2.6",
+    "psr/log": "1.0.0"
+  },
+  "require-dev": {
+    "raulfraile/ladybug": "~1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Desarrolla2\\RS\\": "src/"
+    }
+  }
+}
