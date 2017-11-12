@@ -1,22 +1,22 @@
 ---
 
-Async Event Dispatcher con Symfony2
+# Async Event Dispatcher con Symfony2
 
 ---
 
-Daniel González.
-@desarrolla2
+# Daniel González.
+## @desarrolla2
 10 años programando principalmente con php y symfony.
 
 ---
 
-Objetivo:
+# Objetivo
 
 Aproximación teorico-practico a una implementación de un gestor de eventos asyncronos en symfony2.
 
 ---
 
-EventDispatcher
+# EventDispatcher
 
 - Componente (sencillo) de Symfony2
 - Implementación del patrón observer
