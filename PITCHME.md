@@ -1,38 +1,195 @@
 ---
 
-# Async Event Dispatcher con Symfony2
+# Async Event Dispatcher en Symfony2
 
 ---
 
-# Daniel González.
-## @desarrolla2
-10 años programando principalmente con php y symfony.
+## Daniel González
+
+### @desarrolla2
+
+10 años programando principalmente con php y symfony
+Actualmente trabajando en http://devtia.com
 
 ---
 
-# Objetivo
+## Objetivo
 
-Aproximación teorico-practico a una implementación de un gestor de eventos asyncronos en symfony2.
+- Aproximación teorico-practica a una implementación de un gestor de eventos asyncronos en symfony2
+- Ejemplos:
+    - Básico
+    - Avanzado    
 
 ---
 
-# EventDispatcher
+## Patrón Observador
 
-- Componente (sencillo) de Symfony2
-- Implementación del patrón observer
+> The observer pattern is a software design pattern in which an object, called the subject, maintains a list of its 
+dependents, called observers, and notifies them automatically of any state changes, usually by calling one of their 
+methods
+
+---
+
+
+## Patrón Observador
+
+- Subject
+    + observers[]
+    - attach()
+    - detach()
+    - notify()
+    
+- Observer
+    - update()  
+
+---
+
+## EventDispatcher
+
+- Componente de Symfony2
 - Eventos
     - nombre único
 - Event Dispatcher
 - Listeners / Subscribers
+    - método callback
+    - prioridad
 
 ---
 
 ```<?php
+class ImageController extends AbstractController
+{
+    public function createAction(Request $request)
+    {
+        $form = $this->getFormForCreateUser();
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $manager = $this->get('app.service.image_manager');
+            $entity = $form->getData();
+            $manager->persist($entity, true);
 
-class UserController{
+            $this->createThumbnails($entity);
+            $this->rateImage($entity);
+            // ...
+            $this->updateFeed($this->getUser());
 
-public function create(Request $request){
+            $this->addFlash('success', 'image uploaded successfully');
 
-}
+            return $this->redirectToRoute('_app.image.view', ['id' => $entity->getId()]);
+        }
+    }
 }
 ```
+---
+
+```<?php
+class ImageController extends AbstractController
+{
+    public function createAction(Request $request)
+    {
+        $form = $this->getFormForCreateUser();
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $manager = $this->get('app.service.image_manager');
+            $dispatcher = $this->get('event_dispatcher');
+            $entity = $form->getData();
+            $manager->persist($entity, true);
+
+            $dispatcher->dispatch(CoreEvents::IMAGE_CREATED, new GenericEvent($entity));
+
+            $this->addFlash('success', 'image uploaded successfully');
+
+            return $this->redirectToRoute('_app.image.view', ['id' => $entity->getId()]);
+        }
+    }
+}
+
+```
+---
+
+```<?php
+class ImageSubscriber implements EventSubscriberInterface
+{
+    public static function getSubscribedEvents()
+    {
+        return [
+            CoreEvents::IMAGE_CREATED => 'onCreated',
+        ];
+    }
+
+    public function onCreated(GenericEvent $event)
+    {
+        $entity = $event->getSubject();
+
+        $this->manager->createThumbnails($entity);
+        $this->manager->rateImage($entity);
+        // ...
+        $this->manager->updateFeed($this->getUser());
+    }
+}
+```
+---
+
+
+
+## Implementación básica
+
+- Los eventos se guardan en una base de datos
+- Se consumen mediante a un comando
+- El comando se programa en el cron para ejecutarse periodicamente.
+---
+
+### Persistencia
+
+---
+
+### Consumo
+
+---
+
+### Errores
+
+---
+
+### Ventajas
+
+- Sencillo de implementar y de mantener
+- No requiere añadir nuevos elementos de arquitectura
+
+### Incovenientes
+
+- La ejecución no es instantanea
+- No resuelve el caso de varias ejecuciones en paralelo 
+
+---
+
+## Implementación avanzada
+
+- Los eventos se guardan en una base de datos
+- Se consumen mediante a un comando
+- El comando se programa en el cron para ejecutarse periodicamente
+
+---
+
+### Persistencia
+
+---
+
+### Consumo
+
+---
+
+### Supervisor
+
+### Ventajas
+
+- Ejecución en paralelo
+- Ejecución instantanea
+- Escalabilidad horizontal
+
+### Incovenientes
+
+- Añade elementos de arquitectura
+- Complica la depuración de errores
+
+---
