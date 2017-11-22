@@ -37,7 +37,7 @@ Actualmente trabajando en https://devtia.com
     - método callback
     - prioridad
     
----?code=examples/1_ImageController.php&lang=php&title=ImageController 1
+---?code=examples/ImageController_1.php&lang=php&title=ImageController 1
 
 @[5]
 @[7-9]
@@ -46,7 +46,7 @@ Actualmente trabajando en https://devtia.com
 @[17]
 @[21]
 
----?code=examples/2_ImageController.php&lang=php&title=ImageController 2
+---?code=examples/ImageController_2.php&lang=php&title=ImageController 2
 
 @[11]
 @[15]
@@ -79,7 +79,7 @@ Actualmente trabajando en https://devtia.com
 @[13]
 @[15-23]
 
----?code=examples/1_AsyncEventDispatcher.php&lang=php&title=AsyncEventDispatcher
+---?code=examples/AsyncEventDispatcher_1.php&lang=php&title=AsyncEventDispatcher 1
 
 @[14]
 @[37]
@@ -87,7 +87,7 @@ Actualmente trabajando en https://devtia.com
 @[46]
 @[47-48]
 
----?code=examples/3_ImageController.php&lang=php&title=ImageController 3
+---?code=examples/ImageController_3.php&lang=php&title=ImageController 3
 
 @[11-12]
 
@@ -134,7 +134,7 @@ Actualmente trabajando en https://devtia.com
 @[39]
 @[40-48]
 
----?code=examples/AsyncEventConsumer_1.php&lang=php&title=AsyncEventConsumer 2
+---?code=examples/AsyncEventConsumer_2.php&lang=php&title=AsyncEventConsumer 2
 
 @[40]
 @[42-49]
