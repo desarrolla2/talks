@@ -48,9 +48,9 @@ Actualmente trabajando en https://devtia.com
 
 ---?code=examples/2_ImageController.php&lang=php&title=ImageController2
 
-@[10]
-@[14]
-@[18]
+@[11]
+@[15]
+@[19]
 
 ---?code=examples/ImageSubscriber.php&lang=php&title=ImageSubscriber
 
@@ -69,9 +69,10 @@ Actualmente trabajando en https://devtia.com
 
 ---?code=examples/AsyncEvent.php&lang=php&title=Event
 
-@[22]
-@[28-33]
-@[38]
+@[7]
+@[8]
+@[9-10]
+@[12]
 
 ---?code=examples/1_AsyncEventDispatcher.php&lang=php&title=AsyncEventDispatcher
 
