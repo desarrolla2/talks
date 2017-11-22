@@ -11,7 +11,9 @@
 ### @desarrolla2
 
 10 años programando principalmente con php y symfony
-Actualmente trabajando en http://devtia.com
+
+Actualmente trabajando en https://devtia.com
+
 ---
 @title[objetivo]
 
@@ -19,36 +21,15 @@ Actualmente trabajando en http://devtia.com
 
 - Aproximación teorico-practica a una implementación de un gestor de eventos asyncronos en symfony2
 - Ejemplos:
-    - Básico
-    - Avanzado    
+    - Básico ( MYSQL + CRON )
+    - Avanzado ( RabbitMQ + Supervisor )
 ---
-@title[patron observador 1]
-
-## Patrón Observador
-
-> The observer pattern is a software design pattern in which an object, called the subject, maintains a list of its 
-dependents, called observers, and notifies them automatically of any state changes, usually by calling one of their 
-methods
-
----
-@title[patron observador 2]
-
-## Patrón Observador
-
-- **Subject**
-    - observers[]
-    - attach()
-    - detach()
-    - notify()
-
-- **Observer**
-    - update()
----
-@title[event dispatcher 1]
+@title[event dispatcher]
 
 ## EventDispatcher
 
 - Componente de Symfony2
+- Implementación del patrón observer
 - Eventos
     - nombre único
 - Event Dispatcher
