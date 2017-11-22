@@ -43,7 +43,7 @@ class AsyncEventDispatcher implements EventDispatcherInterface
             ],
             $event->getData()
         );
-        $event = new AsyncEvent($eventName, get_class($event->getSubject()), $event->getId(), $data);
+        $event = new AsyncEvent($eventName, $event->getSubject(), $data);
         $this->em->persist($event);
         $this->em->flush();
 

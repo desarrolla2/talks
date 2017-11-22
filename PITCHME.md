@@ -67,18 +67,25 @@ Actualmente trabajando en https://devtia.com
 - Se consumen mediante a un comando
 - El comando se programa en el cron para ejecutarse periodicamente.
 
+---?code=examples/GenericEvent.php&lang=php&title=GenericEvent
+
+@[12]
+@[43-47]
+
 ---?code=examples/AsyncEvent.php&lang=php&title=Event
 
 @[7]
 @[8]
 @[9-10]
-@[12]
+@[11]
 
 ---?code=examples/1_AsyncEventDispatcher.php&lang=php&title=AsyncEventDispatcher
 
-@[23]
+@[14]
+@[37]
+@[39-45]
 @[46]
-@[48-54]
+@[47-48]
 
 ---?code=examples/3_ImageController.php&lang=php&title=ImageController3
 
