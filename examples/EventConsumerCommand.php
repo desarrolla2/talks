@@ -40,9 +40,7 @@ class EventConsumerCommand extends AbstractCommand
             return;
         }
 
-        $dispatcher = $this->getContainer()->get('event_dispatcher');
         $em = $this->getContainer()->get('doctrine.orm.entity_manager');
-
         try {
             $this->asyncEvent = $em->getRepository('CoreBundle:AsyncEvent')->findFirst();
         } catch (\Exception $e) {
@@ -68,6 +66,7 @@ class EventConsumerCommand extends AbstractCommand
             $em->flush();
         }
 
+        $dispatcher = $this->getContainer()->get('event_dispatcher');
         try {
             $dispatcher->dispatch(
                 $this->asyncEvent->getName(),

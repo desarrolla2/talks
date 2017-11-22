@@ -53,18 +53,14 @@ class AsyncEventDispatcher implements EventDispatcherInterface
 
     public function dispatch($eventName, Event $event = null)
     {
-        if (!in_array($eventName, $this->events)) {
-            throw  new \InvalidArgumentException();
-        }
-        /** @var \CoreBundle\EventDispatcher\CoreEvent $event */
-        $data = array_merge(
+        $arguments = array_merge(
             [
                 'request_base_url' => $this->getBaseUrl(),
                 'notify_to_user_id' => $this->getUserId(),
             ],
             $event->getData()
         );
-        $event = new AsyncEvent($eventName, new CoreEvent($event->getItem(), \GuzzleHttp\json_encode($data)));
+        $event = new AsyncGenericEvent($eventName, $event->getSubject(), $arguments);
         $this->producer->publish(serialize($event));
 
     }

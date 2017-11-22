@@ -37,7 +37,7 @@ Actualmente trabajando en https://devtia.com
     - método callback
     - prioridad
     
----?code=examples/1_ImageController.php&lang=php&title=ImageController1
+---?code=examples/1_ImageController.php&lang=php&title=ImageController 1
 
 @[5]
 @[7-9]
@@ -46,7 +46,7 @@ Actualmente trabajando en https://devtia.com
 @[17]
 @[21]
 
----?code=examples/2_ImageController.php&lang=php&title=ImageController2
+---?code=examples/2_ImageController.php&lang=php&title=ImageController 2
 
 @[11]
 @[15]
@@ -75,8 +75,8 @@ Actualmente trabajando en https://devtia.com
 ---?code=examples/AsyncGenericEvent.php&lang=php&title=AsyncGenericEvent
 
 @[7]
-@[9-10]
-@[11]
+@[11-12]
+@[13]
 @[15-23]
 
 ---?code=examples/1_AsyncEventDispatcher.php&lang=php&title=AsyncEventDispatcher
@@ -87,19 +87,23 @@ Actualmente trabajando en https://devtia.com
 @[46]
 @[47-48]
 
----?code=examples/3_ImageController.php&lang=php&title=ImageController3
+---?code=examples/3_ImageController.php&lang=php&title=ImageController 3
 
-@[12-13]
+@[11-12]
 
 ---?code=examples/EventConsumerCommand.php&lang=php&title=EventConsumerCommand
 
 @[14]
 @[30-35]
 @[36-42]
-@[43-44]
-@[71-79]
-@[80]
-@[85-95]
+@[43-46]
+@[53]
+@[69]
+@[71-77]
+@[79]
+@[84]
+
+---
 
 ### Ventajas
 
@@ -114,21 +118,36 @@ Actualmente trabajando en https://devtia.com
 
 ## Implementación avanzada
 
-- Los eventos se guardan en una base de datos
-- Se consumen mediante a un comando
-- El comando se programa en el cron para ejecutarse periodicamente
+- Los eventos se envían a rabbitMQ
+- RabbitMQBundle
 
----
+---?code=examples/AsyncEventDispatcher_2.php&lang=php&title=AsyncEventDispatcher 2
 
-### Persistencia
+@[35]
+@[54-66]
+@[64]
 
----
+---?code=examples/AsyncEventConsumer_1.php&lang=php&title=AsyncEventConsumer 1
 
-### Consumo
+@[15]
+@[37]
+@[39]
+@[40-48]
 
----
+---?code=examples/AsyncEventConsumer_1.php&lang=php&title=AsyncEventConsumer 2
 
-### Supervisor
+@[40]
+@[42-49]
+@[52-58]
+
+---?code=examples/supervisor.conf&title=supervisor.conf
+
+@[32]
+@[33]
+@[36]
+@[39-40]
+@[42-43]
+
 
 ### Ventajas
 
@@ -140,5 +159,6 @@ Actualmente trabajando en https://devtia.com
 
 - Añade elementos de arquitectura
 - Complica la depuración de errores
+- Complica el deploy
 
 ---
