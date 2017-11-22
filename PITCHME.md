@@ -1,8 +1,10 @@
 ---
+@title[title]
 
 # Async Event Dispatcher en Symfony2
 
 ---
+@title[bio]
 
 ## Daniel González
 
@@ -10,8 +12,8 @@
 
 10 años programando principalmente con php y symfony
 Actualmente trabajando en http://devtia.com
-
 ---
+@title[objetivo]
 
 ## Objetivo
 
@@ -19,8 +21,8 @@ Actualmente trabajando en http://devtia.com
 - Ejemplos:
     - Básico
     - Avanzado    
-
 ---
+@title[patron observador 1]
 
 ## Patrón Observador
 
@@ -29,20 +31,20 @@ dependents, called observers, and notifies them automatically of any state chang
 methods
 
 ---
-
+@title[patron observador 2]
 
 ## Patrón Observador
 
 - Subject
-    + observers[]
+    - observers[]
     - attach()
     - detach()
     - notify()
     
 - Observer
-    - update()  
-
+    - update()
 ---
+@title[event dispatcher 1]
 
 ## EventDispatcher
 
@@ -53,8 +55,8 @@ methods
 - Listeners / Subscribers
     - método callback
     - prioridad
-
 ---
+@title[event dispatcher 2]
 
 ```<?php
 class ImageController extends AbstractController
@@ -81,6 +83,7 @@ class ImageController extends AbstractController
 }
 ```
 ---
+@title[event dispatcher 3]
 
 ```<?php
 class ImageController extends AbstractController
@@ -106,6 +109,7 @@ class ImageController extends AbstractController
 
 ```
 ---
+@title[event dispatcher 4]
 
 ```<?php
 class ImageSubscriber implements EventSubscriberInterface
@@ -129,9 +133,6 @@ class ImageSubscriber implements EventSubscriberInterface
 }
 ```
 ---
-
-
-
 ## Implementación básica
 
 - Los eventos se guardan en una base de datos
