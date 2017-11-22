@@ -36,14 +36,14 @@ class AsyncEventDispatcher implements EventDispatcherInterface
 
     public function dispatch($eventName, Event $event = null)
     {
-        $data = array_merge(
+        $arguments = array_merge(
             [
                 'request_base_url' => $this->getBaseUrl(),
                 'notify_to_user_id' => $this->getUserId(),
             ],
             $event->getData()
         );
-        $event = new AsyncEvent($eventName, $event->getSubject(), $data);
+        $event = new AsyncGenericEvent($eventName, $event->getSubject(), $arguments);
         $this->em->persist($event);
         $this->em->flush();
 

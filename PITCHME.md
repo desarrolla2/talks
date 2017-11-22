@@ -72,12 +72,12 @@ Actualmente trabajando en https://devtia.com
 @[12]
 @[43-47]
 
----?code=examples/AsyncEvent.php&lang=php&title=Event
+---?code=examples/AsyncGenericEvent.php&lang=php&title=AsyncGenericEvent
 
 @[7]
-@[8]
 @[9-10]
 @[11]
+@[15-23]
 
 ---?code=examples/1_AsyncEventDispatcher.php&lang=php&title=AsyncEventDispatcher
 

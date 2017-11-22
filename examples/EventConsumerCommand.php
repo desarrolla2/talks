@@ -73,7 +73,7 @@ class EventConsumerCommand extends AbstractCommand
                 $this->asyncEvent->getName(),
                 new GenericEvent(
                     $entity,
-                    \GuzzleHttp\json_decode($this->asyncEvent->getData(), true)
+                    $this->asyncEvent->getData()
                 )
             );
         } catch (\Exception $e) {

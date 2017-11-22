@@ -19,6 +19,6 @@ class AsyncGenericEvent extends GenericEvent
             $this->entityClass = get_class($subject);
             $this->entityId = $subject->getId();
         }
-        $this->arguments = $arguments;
+        $this->arguments = \GuzzleHttp\json_encode($arguments);
     }
 }
