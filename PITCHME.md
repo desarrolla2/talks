@@ -52,6 +52,11 @@ Actualmente trabajando en https://devtia.com
 @[15]
 @[19]
 
+---?code=examples/GenericEvent.php&lang=php&title=GenericEvent
+
+@[12]
+@[43-47]
+
 ---?code=examples/ImageSubscriber.php&lang=php&title=ImageSubscriber
 
 @[3]
@@ -66,11 +71,6 @@ Actualmente trabajando en https://devtia.com
 - Los eventos se guardan en una base de datos
 - Se consumen mediante a un comando
 - El comando se programa en el cron para ejecutarse periodicamente.
-
----?code=examples/GenericEvent.php&lang=php&title=GenericEvent
-
-@[12]
-@[43-47]
 
 ---?code=examples/AsyncGenericEvent.php&lang=php&title=AsyncGenericEvent
 
@@ -148,7 +148,7 @@ Actualmente trabajando en https://devtia.com
 @[39-40]
 @[42-43]
 
-
+---
 ### Ventajas
 
 - Ejecución en paralelo

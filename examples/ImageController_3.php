@@ -4,7 +4,7 @@ class ImageController extends AbstractController
 {
     public function createAction(Request $request)
     {
-        $form = $this->getFormForCreateUser();
+        $form = $this->getFormForCreateImage();
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $manager = $this->get('app.service.image_manager');

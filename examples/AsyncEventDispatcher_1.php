@@ -41,7 +41,7 @@ class AsyncEventDispatcher implements EventDispatcherInterface
                 'request_base_url' => $this->getBaseUrl(),
                 'notify_to_user_id' => $this->getUserId(),
             ],
-            $event->getData()
+            $event->getArguments()
         );
         $event = new AsyncGenericEvent($eventName, $event->getSubject(), $arguments);
         $this->em->persist($event);
