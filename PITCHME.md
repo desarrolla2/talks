@@ -35,13 +35,17 @@ methods
 
 ## Patrón Observador
 
-- Subject
+- *Subject*
     - observers[]
     - attach()
     - detach()
     - notify()
-    
-- Observer
+---
+@title[patron observador 3]
+
+## Patrón Observador
+
+- *Observer*
     - update()
 ---
 @title[event dispatcher 1]
