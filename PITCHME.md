@@ -58,32 +58,14 @@ methods
 ---
 @title[event dispatcher 2]
 
-```<?php
-class ImageController extends AbstractController
-{
-    public function createAction(Request $request)
-    {
-        $form = $this->getFormForCreateUser();
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            // ..
-            $this->createThumbnails($entity);
-            $this->rateImage($entity);
-            // ...
-            $this->updateFeed($this->getUser());
-            $this->addFlash('success', 'image uploaded successfully');
-
-            return $this->redirectToRoute('_app.image.view', ['id' => $entity->getId()]);
-        }
-    }
-}
-```
+CODE-DELIMITER SLIDES
+---?code=examples/1_ImageController.php&lang=php
 @[1-3]
 @[5-7]
 @[9]
 @[10]
 @[12]
-@[13]
+@[15]
 ---
 @title[event dispatcher 3]
 
