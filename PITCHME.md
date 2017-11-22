@@ -55,86 +55,62 @@ methods
 - Listeners / Subscribers
     - método callback
     - prioridad
----
-@title[event dispatcher 2]
+    
+---?code=examples/1_ImageController.php&lang=php&title=ImageController1
 
-CODE-DELIMITER SLIDES
----?code=examples/1_ImageController.php&lang=php
-@[1-3]
-@[5-7]
-@[9]
-@[10]
-@[12]
+@[5]
+@[7-9]
+@[14]
 @[15]
+@[17]
+@[21]
+
+---?code=examples/2_ImageController.php&lang=php&title=ImageController2
+
+@[10]
+@[14]
+@[18]
+
+---?code=examples/ImageSubscriber.php&lang=php&title=ImageSubscriber
+
+@[3]
+@[5]
+@[7-9]
+@[12-20]
+
 ---
-@title[event dispatcher 3]
 
-```<?php
-class ImageController extends AbstractController
-{
-    public function createAction(Request $request)
-    {
-        $form = $this->getFormForCreateUser();
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $manager = $this->get('app.service.image_manager');
-            $dispatcher = $this->get('event_dispatcher');
-            $entity = $form->getData();
-            $manager->persist($entity, true);
-
-            $dispatcher->dispatch(CoreEvents::IMAGE_CREATED, new GenericEvent($entity));
-
-            $this->addFlash('success', 'image uploaded successfully');
-
-            return $this->redirectToRoute('_app.image.view', ['id' => $entity->getId()]);
-        }
-    }
-}
-
-```
----
-@title[event dispatcher 4]
-
-```<?php
-class ImageSubscriber implements EventSubscriberInterface
-{
-    public static function getSubscribedEvents()
-    {
-        return [
-            CoreEvents::IMAGE_CREATED => 'onCreated',
-        ];
-    }
-
-    public function onCreated(GenericEvent $event)
-    {
-        $entity = $event->getSubject();
-
-        $this->manager->createThumbnails($entity);
-        $this->manager->rateImage($entity);
-        // ...
-        $this->manager->updateFeed($this->getUser());
-    }
-}
-```
----
 ## Implementación básica
 
 - Los eventos se guardan en una base de datos
 - Se consumen mediante a un comando
 - El comando se programa en el cron para ejecutarse periodicamente.
----
 
-### Persistencia
+---?code=examples/AsyncEvent.php&lang=php&title=Event
 
----
+@[22]
+@[28-33]
+@[38]
 
-### Consumo
+---?code=examples/1_AsyncEventDispatcher.php&lang=php&title=AsyncEventDispatcher
 
----
+@[23]
+@[46]
+@[48-54]
 
-### Errores
+---?code=examples/3_ImageController.php&lang=php&title=ImageController3
 
----
+@[12-13]
+
+---?code=examples/EventConsumerCommand.php&lang=php&title=EventConsumerCommand
+
+@[14]
+@[30-35]
+@[36-42]
+@[43-44]
+@[71-79]
+@[80]
+@[85-95]
 
 ### Ventajas
 
@@ -143,8 +119,7 @@ class ImageSubscriber implements EventSubscriberInterface
 
 ### Incovenientes
 
-- La ejecución no es instantanea
-- No resuelve el caso de varias ejecuciones en paralelo 
+- La ejecución no es instantanea 
 
 ---
 
