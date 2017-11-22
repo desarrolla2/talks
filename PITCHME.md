@@ -78,6 +78,13 @@ class ImageController extends AbstractController
     }
 }
 ```
+@[1-3]
+@[5]
+@[5-7]
+@[9]
+@[10]
+@[12]
+@[14]
 ---
 @title[event dispatcher 3]
 
