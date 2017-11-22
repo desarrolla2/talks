@@ -40,10 +40,6 @@ methods
     - attach()
     - detach()
     - notify()
----
-@title[patron observador 3]
-
-## Patrón Observador
 
 - *Observer*
     - update()
